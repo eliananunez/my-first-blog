@@ -1,28 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Django Girls blog</title>
-</head>
-<body>
-    
-    <div>
-        <h1><a href="/">Django Girls Blog</a></h1>
-    </div>
+{% extends 'blog/base.html' %}
 
-    <div>
-        <p>published: 14.06.2014, 12:14</p>
-        <h2><a href="">My first post</a></h2>
-        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-    </div>
-
-    <div>
-        <p>published: 14.06.2014, 12:14</p>
-        <h2><a href="">My second post</a></h2>
-        <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-    </div>
-
-</body>
-</html>
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                <p>published: 14.06.2014, 12:14</p>
+            </div>
+            <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut iste a sit, dolores, natus sint
+                itaque laborum repellendus eum esse impedit at. Dolorum vel distinctio quaerat expedita labore
+                maiores necessitatibus.
+                Tempore recusandae doloremque minima dolorem aut cupiditate facere dolor tempora temporibus
+                iusto natus dicta iure, iste vitae, et quaerat id quo distinctio laboriosam ducimus numquam
+                ipsam soluta. Iste, nesciunt necessitatibus.
+                Dolore modi ab minus nam! Temporibus a quo eaque cupiditate nostrum delectus earum magnam amet,
+                ut asperiores ullam, sunt aliquid reprehenderit? Nesciunt pariatur architecto, delectus quaerat
+                repellendus cupiditate corrupti facere.
+                Aliquam, vitae praesentium. Autem illo quae nesciunt. Asperiores iusto, alias quam delectus
+                commodi fuga aliquid, atque, dignissimos accusantium totam officia animi voluptates autem quasi
+                facere quae incidunt vel. Expedita, deleniti!
+                Molestias deleniti fugit, explicabo necessitatibus possimus animi quasi error quos ducimus quas
+                maiores facilis ut! Omnis, sapiente possimus. Quo fugit animi id provident in harum libero ad
+                quod, reprehenderit maxime.
+            </p>
+        </div>
+    {% endfor %}
+{% endblock %}
